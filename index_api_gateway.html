@@ -13,8 +13,11 @@
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" required>
 
-            <label for="accountNumber">Account Number:</label>
-            <input type="text" id="accountNumber" name="accountNumber" required>
+            <label for="fromAccountId">From Account ID:</label>
+            <input type="text" id="fromAccountId" name="fromAccountId" required>
+
+            <label for="toAccountId">To Account ID:</label>
+            <input type="text" id="toAccountId" name="toAccountId" required>
 
             <label for="transactionType">Transaction Type:</label>
             <select id="transactionType" name="transactionType" required>
@@ -32,6 +35,17 @@
 
             <button type="submit">Submit Transaction</button>
         </form>
+        <div id="result"></div>
+
+        <hr>
+
+        <h2>Check Account Balance</h2>
+        <div>
+            <label for="accountIdForBalance">Account ID:</label>
+            <input type="text" id="accountIdForBalance" required>
+            <button id="checkBalance">Check Balance</button>
+        </div>
+        <div id="balanceResult"></div>
     </div>
 
     <script src="script.js"></script>

@@ -17,9 +17,13 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h1 {
+h1, h2 {
     color: #333;
     text-align: center;
+}
+
+form, div {
+    margin-bottom: 20px;
 }
 
 form {
@@ -49,4 +53,17 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+#result, #balanceResult {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 4px;
 }

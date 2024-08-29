@@ -35,6 +35,27 @@ async function performTransaction(fromAccountId, toAccountId, amount, type, desc
     }
 }
 
+async function getAccountBalance(accountId) {
+    try {
+        const response = await fetch(`https://api.securebank.com/accounts/${accountId}/balance`, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + userToken
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to retrieve balance');
+        }
+
+        const result = await response.json();
+        return result.balance;
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
+}
+
 document.getElementById('transactionForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const resultDiv = document.getElementById('result');
