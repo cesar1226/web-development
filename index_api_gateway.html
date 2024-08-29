@@ -34,19 +34,6 @@
         </form>
     </div>
 
-    <script>
-        document.getElementById('transactionForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here, you would typically send the form data to your backend API
-            console.log('Form submitted!', {
-                name: this.name.value,
-                accountNumber: this.accountNumber.value,
-                transactionType: this.transactionType.value,
-                amount: this.amount.value,
-                description: this.description.value
-            });
-            alert('Transaction submitted successfully!');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
