@@ -37,7 +37,7 @@ async function performTransaction(fromAccountId, toAccountId, amount, type, desc
 
 async function getAccountBalance(accountId) {
     try {
-        const response = await fetch(`https://api.securebank.com/accounts/${accountId}/balance`, {
+        const response = await fetch('https://api.securebank.com/accounts/${accountId}/balance', {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + userToken
@@ -56,21 +56,39 @@ async function getAccountBalance(accountId) {
     }
 }
 
-document.getElementById('transactionForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const resultDiv = document.getElementById('result');
-    resultDiv.textContent = 'Processing transaction...';
+document.addEventListener('DOMContentLoaded', () => {
+    const transactionForm = document.getElementById('transactionForm');
+    const resultDiv = document.getElementById('transactionResult');
+    const balanceButton = document.getElementById('checkBalance');
+    const balanceResult = document.getElementById('balanceResult');
 
-    try {
-        const result = await performTransaction(
-            this.fromAccountId.value,
-            this.toAccountId.value,
-            this.amount.value,
-            this.transactionType.value,
-            this.description.value
-        );
-        resultDiv.textContent = `Transaction successful! Transaction ID: ${result.transactionId}`;
-    } catch (error) {
-        resultDiv.textContent = `Transaction failed: ${error.message}`;
-    }
+    transactionForm.addEventListener('submitTransaction', async function(e) {
+        e.preventDefault();
+        resultDiv.textContent = 'Processing transaction...';
+
+        try {
+            const result = await performTransaction(
+                this.fromAccountId.value,
+                this.toAccountId.value,
+                this.amount.value,
+                this.transactionType.value,
+                this.description.value
+            );
+            resultDiv.textContent = `Transaction successful! Transaction ID: ${result.transactionId}`;
+        } catch (error) {
+            resultDiv.textContent = `Transaction failed: ${error.message}`;
+        }
+    });
+
+    balanceButton.addEventListener('click', async function() {
+        const accountId = document.getElementById('accountIdForBalance').value;
+        balanceResult.textContent = 'Fetching balance...';
+
+        try {
+            const balance = await getAccountBalance(accountId);
+            balanceResult.textContent = `Current balance: $${balance.toFixed(2)}`;
+        } catch (error) {
+            balanceResult.textContent = `Failed to retrieve balance: ${error.message}`;
+        }
+    });
 });

@@ -10,7 +10,7 @@ table = dynamodb.Table('SecureBankAccounts')
 def lambda_handler(event, context):
     try:
         # Parse the incoming event from API Gateway
-        body = json.loads(event['body'])
+        body = event['body']
         from_account_id = body['fromAccountId']
         to_account_id = body['toAccountId']
         amount = Decimal(str(body['amount']))  # Convert to Decimal for DynamoDB
@@ -61,7 +61,7 @@ def lambda_handler(event, context):
                 'amount': amount,
                 'type': transaction_type,
                 'description': description,
-                'timestamp': context.get_remaining_time_in_millis()
+                'timestamp': str(context.get_remaining_time_in_millis())
             }
         )
 
