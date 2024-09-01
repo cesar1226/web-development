@@ -1,8 +1,11 @@
-// Simulated user token (in a real app, this would come from your authentication process)
-// En script.js manejarías las solicitudes al backend para:
-// - Verificar credenciales al iniciar sesión
-// - Obtener el saldo del usuario
-// - Realizar transacciones (depósitos, retiros, transferencias)
+
+// In script.js we should handle:
+// - Verify the user with some authentication methods
+// - Obtain the account balance of the user
+// - Being able to perfomr actions such as deposit, transfer and withdrawal
+
+// Import the configuration
+import { API_ENDPOINTS, API_KEY } from './config/config.js';
 
 function login() {
     // Aquí iría la lógica de autenticación
@@ -22,59 +25,54 @@ function performTransaction(event) {
 
     resultDiv.textContent = 'Processing transaction...';
 
-    const transactionApi = 'https://gauwee1jg9.execute-api.us-east-1.amazonaws.com/dev/transactions'
-    
     var requestOptions = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'x-api-key': 'QaIni1usrL2NLwj5BSmZ53YrUonoODhcazzdD0vR'
+            'x-api-key': API_KEY
 /*          'Access-Control-Allow-Origin': '*'
             'Access-Control-Allow-Methods': 'POST',
             'Access-Control-Allow-Headers': 'Content-Type',
             'Access-Control-Allow-Credentials': true */
         },
         body: JSON.stringify({
-            fromAccountId,
-            toAccountId,
-            amount,
-            transactionType,
-            description
+            "fromAccountId":fromAccountId,
+            "toAccountId": toAccountId,
+            "amount": amount,
+            "transactionType": transactionType,
+            "description": description
         })
     }
     
-    fetch(transactionApi, requestOptions)
+    fetch(API_ENDPOINTS.transaction, requestOptions)
         .then(response => response.json())
         .then(result => {
-            resultDiv.textContent = 'Transaction Successful: ' + result.body;
+            const parsedBody = JSON.parse(result.body)
+            resultDiv.textContent = `Transaction Successful: ${parsedBody.transactionId}`;
         })
         .catch(error => {
             resultDiv.textContent = 'Transaction Failed: ' + error.message;
             });
     }
 
-
 function getAccountBalance() {
     const accountId = document.getElementById('accountIdForBalance').value;
     const balanceResult = document.getElementById('balanceResult');
     balanceResult.textContent = 'Fetching balance...';
 
-    const balanceApi = 'https://gauwee1jg9.execute-api.us-east-1.amazonaws.com/dev/balance'
-
     var requestOptions = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'x-api-key': 'QaIni1usrL2NLwj5BSmZ53YrUonoODhcazzdD0vR'
-/*          'Access-Control-Allow-Origin': 'https://ejercicio-web-development.s3.amazonaws.com',
-            */
+            'x-api-key': API_KEY
+/*          'Access-Control-Allow-Origin': 'https://bucket_nm.s3.amazonaws.com' */
         },
         body: JSON.stringify({
             "accountId":accountId
         })
     }
 
-    fetch(balanceApi, requestOptions)
+    fetch(API_ENDPOINTS.balance, requestOptions)
         .then(response=> response.json())
         .then(result => {
             const parsedBody = JSON.parse(result.body)
