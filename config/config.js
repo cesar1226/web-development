@@ -1,2 +1,3 @@
-transactions_endpoint= 'https://7cng7ckhwj.execute-api.us-east-1.amazonaws.com/dev/transactions'
-balance_endpoint='https://7cng7ckhwj.execute-api.us-east-1.amazonaws.com/dev/accounts'
+transactions_endpoint= 'https:/..../dev/transactions'
+balance_endpoint='https:/..../dev/balance'
+api_ley = ''

@@ -10,12 +10,11 @@ table = dynamodb.Table('SecureBankAccounts')
 def lambda_handler(event, context):
     try:
         # Parse the incoming event from API Gateway
-        body = event['body']
-        from_account_id = body['fromAccountId']
-        to_account_id = body['toAccountId']
-        amount = Decimal(str(body['amount']))  # Convert to Decimal for DynamoDB
-        transaction_type = body['type']
-        description = body.get('description', '')
+        from_account_id = event['fromAccountId']
+        to_account_id = event['toAccountId']
+        amount = Decimal(str(event['amount']))  # Convert to Decimal for DynamoDB
+        transaction_type = event['type']
+        description = event.get('description', '')
 
         # Generate a unique transaction ID
         transaction_id = str(uuid.uuid4())

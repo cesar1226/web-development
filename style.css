@@ -7,7 +7,13 @@ body {
     padding: 20px;
     background-color: #f4f4f4;
 }
+.screen {
+    display: none;
+}
 
+.active {
+    display: block;
+}
 .container {
     max-width: 800px;
     margin: auto;
@@ -61,7 +67,7 @@ hr {
     border-top: 1px solid #ddd;
 }
 
-#result, #balanceResult {
+#transactionResult, #balanceResult {
     margin-top: 20px;
     padding: 10px;
     background-color: #e9ecef;

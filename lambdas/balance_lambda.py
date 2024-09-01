@@ -8,7 +8,8 @@ table = dynamodb.Table('SecureBankAccounts')
 def lambda_handler(event, context):
     try:
         # Parse the account_id from the path parameters
-        account_id = event['pathParameters']['accountId']
+        account_id = str(event['accountId'])
+        # account_id = event['pathParameters']['accountId']
 
         # Query the DynamoDB table for the account balance
         response = table.get_item(
