@@ -4,7 +4,7 @@ SecureBank is a simple web-based banking application built using HTML, CSS, and 
 
 ## Features
 
-- User authentication (login functionality)
+- User authentication (login functionality in development)
 - Dashboard for account management
 - Perform transactions (deposit, withdrawal, transfer)
 - Check account balance
@@ -14,7 +14,14 @@ SecureBank is a simple web-based banking application built using HTML, CSS, and 
 - `index.html`: Main HTML file containing the structure of the application
 - `script.js`: JavaScript file handling user interactions and API calls
 - `style.css`: CSS file for styling the application
-- `config/config.js`: Configuration file containing API endpoints and API key (not included in this repository)
+- `config/config.js`: Configuration file containing API endpoints and API key (not included in this repository). It contains simple exports to call in the javascript
+```javascript
+export const API_ENDPOINTS = {
+    transaction: 'endpoint-1',
+    balance: 'endpoint-2'
+};
+export const API_KEY = 'your-api-key';
+```
 
 ## Setup and Installation
 
