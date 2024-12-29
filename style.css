@@ -87,3 +87,17 @@ hr {
     background-color: #e9ecef;
     border-radius: 4px;
 }
+
+.error {
+    background-color: #ffe6e6;
+    color: #dc3545;
+}
+
+.success {
+    background-color: #e6ffe6;
+    color: #28a745;
+}
+.loading {
+    background-color: #e6f3ff;
+    color: #007BFF;
+}
