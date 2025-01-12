@@ -14,7 +14,8 @@ SecureBank is a simple web-based banking application built using HTML, CSS, and 
 - `index.html`: Main HTML file containing the structure of the application
 - `script.js`: JavaScript file handling user interactions and API calls
 - `style.css`: CSS file for styling the application
-- `config/config.js`: Configuration file containing API endpoints and API key (not included in this repository). It contains simple exports to call in the javascript
+- `config/config.js`: Configuration file containing API endpoints and API key (not included in this repository). 
+It contains simple exports to call in the javascript. Create it with this structure
 ```javascript
 export const API_ENDPOINTS = {
     transaction: 'endpoint-1',
@@ -22,6 +23,9 @@ export const API_ENDPOINTS = {
 };
 export const API_KEY = 'your-api-key';
 ```
+
+- `lambdas`: Python code for the lambdas in AWS. They will be the endpoints for our web app
+- `docs`: Complementary information on how to test the api gateway using curl command
 
 ## Setup and Installation
 
@@ -39,7 +43,7 @@ export const API_KEY = 'your-api-key';
 
 ## API Endpoints
 
-The application interacts with two main API endpoints:
+The application interacts with two main API endpoints url that you need to create first in the api gateway service:
 
 1. Transaction API: `API_ENDPOINTS.transaction`
 2. Balance API: `API_ENDPOINTS.balance`
