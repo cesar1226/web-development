@@ -1,0 +1,22 @@
+-- You can send some request using your terminal. In this case, you can validate the parameters. This is a fast approach 
+to validate that your api gateway is fetching the request
+
+(The api key is actually not necessary. It would be in case you add that extra security though)
+
+curl -X GET https://<UNIQUE ID>.execute-api.us-east-1.amazonaws.com/[STAGE-NAME]/[STAGE-NAME] \
+-H "Content-Type: application/json" \
+-d '{"headers":{"x-api-key":"your-api-key"}}'
+
+
+On the POST request, you can have a nested event
+
+curl -X POST https://<UNIQUE ID>.us-east-1.amazonaws.com/dev/<...> \
+-H "Content-Type: application/json" \
+-H "x-api-key: your-api-key" \
+-d '{"Param1": {"Param1_1": "1", "Param1_2":"2"}, "Param2":"2"}'
+
+
+Or you can have a body with the data in single json
+curl -X POST https://<UNIQUE ID>.execute-api.us-east-1.amazonaws.com/dev/ \
+-H "Content-Type: application/json" \
+-d '{"Param1":"1", "Param2":"2"}'
