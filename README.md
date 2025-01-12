@@ -57,23 +57,22 @@ The application uses two main tables in DynamoDB:
 ### 1. Accounts Table
 
 - **Table Name**: `Accounts`
-- **Primary Key**: `accountId` (String)
+- **Primary Key**: `account_id` (String)
 - **Attributes**:
   - `balance` (Number)
-  - `owner` (String)
-  - `createdAt` (String - ISO8601 timestamp)
-  - `updatedAt` (String - ISO8601 timestamp)
+  - `user_address` (String)
+  - `user_name` (String)
 
 ### 2. Transactions Table
 
 - **Table Name**: `Transactions`
-- **Primary Key**: `transactionId` (String)
-- **Sort Key**: `timestamp` (String - ISO8601 timestamp)
+- **Primary Key**: `transaction_id` (String)
+- **Sort Key (optional)**: `timestamp` (String - ISO8601 timestamp)
 - **Attributes**:
-  - `fromAccountId` (String)
-  - `toAccountId` (String)
+  - `from_account_id` (String)
+  - `to_account_id` (String)
   - `amount` (Number)
-  - `transactionType` (String - 'deposit', 'withdrawal', or 'transfer')
+  - `transaction_type` (String - 'deposit', 'withdrawal', or 'transfer')
   - `description` (String)
 
 ## Security Considerations
