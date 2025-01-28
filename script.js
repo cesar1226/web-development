@@ -13,6 +13,11 @@ function login() {
     document.getElementById('dashboardScreen').classList.add('active');
 }
 
+function logout() {
+    // Aquí iría la lógica de cierre de sesión
+    document.getElementById('dashboardScreen').classList.remove('active');
+    document.getElementById('loginScreen').classList.add('active');
+}
 
 function performTransaction(event) {
 
