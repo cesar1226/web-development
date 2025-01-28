@@ -26,6 +26,13 @@ body {
 }
 
 /* Sticky Navigation */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;  /* Ensure the header stays on top */
+    background-color: white;
+    box-shadow: var(--shadow);  /* Optional shadow for styling */
+}
 .nav-sticky {
     position: fixed;
     top: 0;
@@ -102,9 +109,9 @@ body {
 /* Center form in the middle of the screen */
 .form-container {
     position: fixed;
-    top: 50%;
+    top: 110px;  /* Adjust this based on the height of the header */
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     width: 90%;
     max-width: 400px;
     background: white;
