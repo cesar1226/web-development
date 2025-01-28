@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureBank - Your Trusted Financial Partner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <!-- Banner Navigation -->
+        <nav class="banner-nav">
+            <div class="nav-logo">
+                <label for="nav-logo">Secure Bank</label>
+                <img src="./images/bank_logo.jpg" alt="SecureBank Logo" class="logo">
+            </div>
+            <h1>Welcome to Secure Bank</h1>
+            <br>
+            <h2>What do you want to do today?</h2>
+            <div class="nav-buttons">
+                <button id="userInfoTab" class="tab-button">User Information</button>
+                <button id="transactionTab" class="tab-button">Make a Transaction</button>
+                <button id="balanceTab" class="tab-button">Check Balance</button>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- User Information Section -->
+    <div id="userInfoSection" class="form-container hidden">
+        <h2>User Information</h2>
+        <p>Details about the user will be displayed here.</p>
+    </div>
+    
+     <!-- Transaction Form Section -->
+     <div id="transactionSection" class="form-container hidden">
+        <h2>Make a Transaction</h2>
+        <form id="transactionForm">
+            <label for="fromAccountId">From Account ID:</label>
+            <input type="text" id="fromAccountId" name="fromAccountId" required>
+
+            <label for="toAccountId">To Account ID:</label>
+            <input type="text" id="toAccountId" name="toAccountId" required>
+
+            <label for="transactionType">Transaction Type:</label>
+            <select id="transactionType" name="transactionType" required>
+                <option value="">Select a transaction type</option>
+                <option value="deposit">Deposit</option>
+                <option value="withdrawal">Withdrawal</option>
+                <option value="transfer">Transfer</option>
+            </select>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" step="0.5" required>
+
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description">
+
+            <button type="submit" id="submitTransaction">Submit Transaction</button>
+        </form>
+        <div id="transactionResult"></div>
+    </div>
+
+    <!-- Balance Checker Section -->
+    <div id="balanceSection" class="form-container hidden">
+        <h2>Check Account Balance</h2>
+        <div id="balanceChecker">
+            <label for="accountIdForBalance">Account ID:</label>
+            <input type="text" id="accountIdForBalance" required>
+            <button type="button" id="checkBalance">Check Balance</button>
+        </div>
+        <div id="balanceResult"></div>
+    </div>
+</body>
+<script src="./transactions_func.js"></script>
+</html>
