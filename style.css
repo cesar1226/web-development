@@ -1,84 +1,206 @@
-/* securebank.css */
+/* Base styles and CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #015aba;
+    --primary-hover: #086dda;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --border-color: #ddd;
+    --shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    --spacing-unit: 1rem;
+    --button-color: #808000; /* Olive Green */
+    --button-hover: #6b8e23; /* Darker Olive */
+}
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--background-color);
     line-height: 1.6;
-    margin: 0;
-    padding: 20px;
-}
-.screen {
-    display: none;
+    color: var(--text-color);
+    min-height: 100vh;
 }
 
-.active {
-    display: block;
-}
-
-/* for the login */
-.login-container {
+/* Sticky Navigation */
+.nav-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-/* for the dashboard */
-.container {
-    max-width: 800px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h1, h2 {
-    color: #333;
-    text-align: center;
-}
-
-form, div {
-    margin-bottom: 20px;
-}
-
-form {
+    padding: 1rem 2rem;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    z-index: 1000;
 }
 
-label {
-    margin-top: 10px;
+.nav-logo {
+    flex-shrink: 0;
 }
 
-input, select {
-    margin-bottom: 15px;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.logo {
+    max-height: 40px;
+    width: auto;
 }
 
-button {
-    background-color: #015aba;
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-button {
+    background-color: var(--button-color);
     color: white;
-    padding: 10px;
+    padding: 0.5rem 1rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: var(--button-hover);
+}
+
+/* Welcome Screen */
+.welcome-container {
+    padding-top: 80px; /* Account for fixed nav */
+}
+
+.hero {
+    text-align: center;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-image {
+    max-width: 25%;
+    height: auto;
+    margin: 2rem 0;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, opacity 0.3s ease; /* When clicked the buttons */
+}
+
+/* Form Styles */
+
+/* Center form in the middle of the screen */
+
+/* By default, all forms are visible */
+.form-container {
+    display: block; /* Show the form */
+    margin: 20px auto;
+}
+
+/* Center form in the middle of the screen */
+.form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    z-index: 1001;
+}
+
+/* Add spacing between the label and previous input */
+.form-container label {
+    margin-top: 1rem; /* Space below the last label */
+}
+
+/* Hide the element when it has the 'hidden' class */
+.hidden {
+    display: none; /* Completely hides the element */
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Buttons to send the form information */
+button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 2rem; /* Space below the last label */
 }
 
 button:hover {
-    background-color: #086dda;
+    background-color: var(--button-hover);
 }
 
-hr {
-    margin: 30px 0;
-    border: 0;
-    border-top: 1px solid #ddd;
+
+/* Banner Navigation Styling */
+.banner-nav {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    gap: 2rem; /* Space between buttons */
+    padding: 0.8rem 0; /* Less padding to reduce height */
+    background-color: white;
+    box-shadow: var(--shadow);
+}
+
+/* Tab Buttons - Smaller & Inline */
+.tab-button {
+    padding: 0.4rem 1rem; /* Reduce padding */
+    border: none;
+    border-radius: 15px; /* Slightly rounded */
+    font-size: 0.9rem; /* Smaller text */
+    font-weight: 500; /* Medium weight like CaixaBank */
+    cursor: pointer;
+    background-color: transparent; /* Default to no background */
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effects */
+.tab-button:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* "Hazte Cliente" Style */
+#userInfoTab {
+    background-color: #e1b300; /* Gold color */
+    color: black;
+}
+
+/* "Entrar" Style */
+#transactionTab {
+    background-color: #086dda; /* CaixaBank Blue */
+    color: white;
+}
+
+#balanceTab {
+    background-color: #ddd; /* Light grey for neutral style */
+    color: black;
 }
 
 #transactionResult, #balanceResult {

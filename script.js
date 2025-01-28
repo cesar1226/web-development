@@ -7,18 +7,6 @@
 // Import the configuration
 import { API_ENDPOINTS, API_KEY } from './config/config.js';
 
-function login() {
-    // Aquí iría la lógica de autenticación
-    document.getElementById('loginScreen').classList.remove('active');
-    document.getElementById('dashboardScreen').classList.add('active');
-}
-
-function logout() {
-    // Aquí iría la lógica de cierre de sesión
-    document.getElementById('dashboardScreen').classList.remove('active');
-    document.getElementById('loginScreen').classList.add('active');
-}
-
 function performTransaction(event) {
 
     const fromAccountId = document.getElementById('fromAccountId').value;
