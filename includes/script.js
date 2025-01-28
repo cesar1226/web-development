@@ -38,17 +38,34 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         try {
-            const response = await fetch("https://placeholder-api-url.com/login", {
+            /*
+            const response = await fetch(
+                "https://placeholder-api-url.com/login", 
+            {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(payload),
             });
+            const data = await response.json();
+            */
 
+           // Mock the fetch request response
+           const mockResponse = {
+                ok: true,
+                json: () => Promise.resolve({ 
+                    message: "Login successful", 
+                    token: "mock_token_1234" 
+                })
+            };
+            const response = mockResponse;  // Using the mocked response here
             const data = await response.json();
             console.log("Login Response:", data);
-            alert("Login Successful");
+            if (response.ok) {
+                alert("Login Successful");
+                window.location.href = "transactions.html"; // Redirect to the bank transaction page
+            }
         } catch (error) {
             console.error("Login Error:", error);
             alert("Login Failed");
