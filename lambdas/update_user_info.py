@@ -7,13 +7,13 @@ table = dynamodb.Table('YOUR_DYNAMODB_TABLE')
 def lambda_handler(event, context):
     try:
         body = json.loads(event['body'])
-        user_id = body.get('user_id')
+        account_id = body.get('id')
         name = body.get('name')
         email = body.get('email')
         phone = body.get('phone')
         address = body.get('address')
         
-        if not user_id:
+        if not account_id:
             return {
                 'statusCode': 400,
                 'body': json.dumps({'message': 'User ID is required'})
@@ -28,7 +28,7 @@ def lambda_handler(event, context):
         }
         
         table.update_item(
-            Key={'user_id': user_id},
+            Key={'account_id': account_id},
             UpdateExpression=update_expression,
             ExpressionAttributeValues=expression_values
         )
