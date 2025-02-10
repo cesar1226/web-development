@@ -18,8 +18,9 @@ SecureBank is a simple web-based banking application built using HTML, CSS, and 
 It contains simple exports to call in the javascript. Create it with this structure
 ```javascript
 export const API_ENDPOINTS = {
-    transaction: 'endpoint-1',
-    balance: 'endpoint-2'
+  make_transaction: 'endpoint-1',
+  get_balance: 'endpoint-2',
+  create_user: 'endpoint-3'
 };
 export const API_KEY = 'your-api-key';
 ```
@@ -52,6 +53,15 @@ The application interacts with two main API endpoints url that you need to creat
 2. Balance API: `API_ENDPOINTS.balance`
 
 Make sure these endpoints are correctly configured in your AWS setup.
+
+## How to test
+
+You can always launch a curl command to your endpoint mocking the data of the user.
+```bash
+curl -X POST https://<UNIQUE ID>.execute-api.us-east-1.amazonaws.com/dev/ \
+-H "Content-Type: application/json" \
+-d '{"Param1":"1", "Param2":"2"}'
+```
 
 ## Database Schema
 
