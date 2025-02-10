@@ -27,6 +27,9 @@ export const API_KEY = 'your-api-key';
 - `lambdas`: Python code for the lambdas in AWS. They will be the endpoints for our web app
 - `docs`: Complementary information on how to test the api gateway using curl command
 
+## Arquitecture
+![alt text](</docs/webserver_infra.png>)
+
 ## Setup and Installation
 
 1. Clone this repository to your local machine.

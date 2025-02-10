@@ -195,19 +195,19 @@ button:hover {
 
 /* "Hazte Cliente" Style */
 #userInfoTab {
-    background-color: #e1b300; /* Gold color */
-    color: black;
+    background-color: #6b8e23; /* Gold color */
+    color: white;
 }
 
 /* "Entrar" Style */
 #transactionTab {
-    background-color: #086dda; /* CaixaBank Blue */
+    background-color: #6b8e23; /* CaixaBank Blue */
     color: white;
 }
 
 #balanceTab {
-    background-color: #ddd; /* Light grey for neutral style */
-    color: black;
+    background-color: #6b8e23; /* Light grey for neutral style */
+    color: white;
 }
 
 #transactionResult, #balanceResult {
