@@ -6,7 +6,9 @@ table = dynamodb.Table('YOUR_DYNAMODB_TABLE')
 
 def lambda_handler(event, context):
     try:
-        body = json.loads(event['body'])
+        body = event['body']
+        if isinstance(body, str):
+            body = json.loads(body)
         account_id = body.get('id')
         name = body.get('name')
         surname = body.get('surname')
