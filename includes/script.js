@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         try {
-            const response = await fetch("https://placeholder-api-url.com/signup", {
+            const response = await fetch(API_ENDPOINTS.create_user, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

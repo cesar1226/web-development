@@ -36,7 +36,7 @@ function performTransaction(event) {
         })
     }
     
-    fetch(API_ENDPOINTS.transaction, requestOptions)
+    fetch(API_ENDPOINTS.make_transaction, requestOptions)
         .then(response => response.json())
         .then(result => {
             const parsedBody = JSON.parse(result.body)
@@ -64,7 +64,7 @@ function getAccountBalance() {
         })
     }
 
-    fetch(API_ENDPOINTS.balance, requestOptions)
+    fetch(API_ENDPOINTS.get_balance, requestOptions)
         .then(response=> response.json())
         .then(result => {
             const parsedBody = JSON.parse(result.body)
